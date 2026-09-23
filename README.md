@@ -1,6 +1,6 @@
 # Rakshan Bhandary — Portfolio
 
-A static personal portfolio that shows Rakshan’s name immediately, then fades in the rest of the page after half a second. Reduced-motion users see all content immediately. Expand the Accenture and SensoPart cards to read the full experience details. An education section covers the ongoing Freiburg master’s and completed bachelor’s degree.
+A static personal portfolio that draws Rakshan’s name as a large outline, then moves it into the heading over one second as the page appears. Reduced-motion users see all content immediately. Expand the Accenture and SensoPart cards to read the full experience details. An education section covers the ongoing Freiburg master’s and completed bachelor’s degree.
 
 ## Run locally
 
@@ -18,6 +18,7 @@ Open http://127.0.0.1:5173/ in your browser.
 - `dist/style.css`: layout, responsive styles, and transitions
 - `dist/app.js`: toolkit interactions and independent experience-card animations
 - `dist/theme.js`: persistent light/dark theme preference
+- `dist/name-reveal.js`: responsive outline-to-heading animation with reduced-motion and interruption support
 
 The `dist` directory is the complete static website and can be hosted directly. No build step or package installation is required.
 

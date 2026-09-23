@@ -135,9 +135,12 @@ header nav{margin-left:auto}
 @media(max-width:540px){header{gap:12px;flex-wrap:wrap}header nav{order:3;flex-basis:100%;justify-content:space-between;margin:0}header .theme-toggle{margin-left:auto}}
 
 
-/* Name appears immediately; the rest follows without changing the layout. */
-@keyframes page-reveal{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+/* A decorative outline name moves into the existing heading, without layout shifts. */
+.name-reveal-overlay{position:fixed;inset:0;width:100%;height:100%;z-index:20;pointer-events:none;overflow:visible}
+.name-reveal-overlay text{font-family:'Manrope',sans-serif;font-weight:600;fill:var(--ink);stroke:var(--ink);stroke-width:1;stroke-linejoin:round;paint-order:stroke fill}
+.name-reveal-overlay .name-surname{fill:var(--blue);stroke:var(--blue)}
 @media(prefers-reduced-motion:no-preference){
-  #portfolio>header,.hero-copy>:not(.hero-name),.hero>.journey-card,#portfolio>section:not(.hero),#portfolio>footer{animation:page-reveal .35s ease-out .5s both}
-  #portfolio>header:focus-within,.hero-copy>:not(.hero-name):focus-within,.hero>.journey-card:focus-within,#portfolio>section:not(.hero):focus-within,#portfolio>footer:focus-within{animation:none}
+  .name-reveal-active .hero-name{opacity:0}
+  .name-reveal-active #portfolio>header,.name-reveal-active .hero-copy>:not(.hero-name),.name-reveal-active .hero>.journey-card,.name-reveal-active #portfolio>section:not(.hero),.name-reveal-active #portfolio>footer{opacity:0}
+  .name-reveal-settling #portfolio>header,.name-reveal-settling .hero-copy>:not(.hero-name),.name-reveal-settling .hero>.journey-card,.name-reveal-settling #portfolio>section:not(.hero),.name-reveal-settling #portfolio>footer{transition:opacity .25s ease;opacity:1}
 }
