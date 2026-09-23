@@ -1,6 +1,6 @@
 # Rakshan Bhandary — Portfolio
 
-A static personal portfolio with an optional 1.8-second India-to-Germany flight introduction. The intro uses angular country outlines, highlights Germany, and respects reduced-motion preferences.
+A static personal portfolio with an optional 1.8-second India-to-Germany flight introduction. The intro uses angular country outlines, highlights Germany, and respects reduced-motion preferences. Expand the Accenture and SensoPart cards to read the full experience details. An education section covers the ongoing Freiburg master’s and completed bachelor’s degree.
 
 ## Run locally
 
