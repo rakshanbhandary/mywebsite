@@ -33,3 +33,11 @@ Download the Natural Earth GeoJSON files into a local `.qa` directory:
 Run `python scripts/generate-map.py` from the repository root.
 
 Map geometry is public-domain Natural Earth data. India uses the India point-of-view boundary dataset. The outline airplane is from Lucide; its license is included in `dist/lucide-license.txt`. See `dist/map-source.txt` for map source details.
+
+## Interactions
+
+- Skill categories open on hover, keyboard focus, or tap; Escape dismisses the list.
+- Experience cards align when collapsed and animate open and closed.
+- The master’s timeline is filled to 95% with a gentle pulse and no visible numeric percentage.
+- Reduced-motion preferences disable the intro and decorative motion.
+- Company and institution logo sources are recorded in `dist/logos/sources.txt`.

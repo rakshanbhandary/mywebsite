@@ -35,14 +35,46 @@
       <div class="hero-copy"><p class="eyebrow">RAKSHAN BHANDARY / DATA ENGINEER</p><h1>Complex data.<br><span>Clear possibilities.</span></h1><p class="lead">I build reliable data pipelines and automate complex workflows. From India to Germany, curiosity has always been the connecting thread.</p><div class="hero-links"><a class="primary-link" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="https://www.linkedin.com/in/rakshan-bhandary-589380187" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
       <aside class="journey-card"><div class="card-top"><span>THE JOURNEY SO FAR</span><span>01 — 02</span></div><div class="journey-cities"><span>India</span><div class="journey-line"></div><span>Germany</span></div><p>Building systems.<br>Connecting the dots.</p><span class="card-foot">PYTHON / SQL / AZURE / PYSPARK</span></aside>
     </section>
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><h2 class="eyebrow" id="skills-title">MY TOOLKIT</h2><span>The skills behind the systems.</span></div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-programming" type="button" aria-expanded="false" aria-controls="skill-panel-programming"><span class="skill-name">Programming<span aria-hidden="true">+</span></span><span class="skill-teaser">Python · SQL · PySpark</span></button>
+          <div class="skill-panel" id="skill-panel-programming" role="region" aria-labelledby="skill-programming" hidden><ul><li>Python</li><li>pandas</li><li>matplotlib</li><li>PySpark</li><li>SQL</li><li>Streamlit</li><li>Linux / Unix shell scripting</li><li>YAML</li></ul></div>
+        </div>
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-azure" type="button" aria-expanded="false" aria-controls="skill-panel-azure"><span class="skill-name">Azure<span aria-hidden="true">+</span></span><span class="skill-teaser">Data Factory · Event Hub</span></button>
+          <div class="skill-panel" id="skill-panel-azure" role="region" aria-labelledby="skill-azure" hidden><ul><li>Azure Data Factory</li><li>Synapse Analytics</li><li>Event Hub</li><li>ADLS Gen2</li><li>Azure Functions</li><li>Key Vault</li><li>Blob Storage</li></ul></div>
+        </div>
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-engineering" type="button" aria-expanded="false" aria-controls="skill-panel-engineering"><span class="skill-name">Data engineering<span aria-hidden="true">+</span></span><span class="skill-teaser">Batch · Streaming · ETL</span></button>
+          <div class="skill-panel" id="skill-panel-engineering" role="region" aria-labelledby="skill-engineering" hidden><ul><li>ETL / ELT pipelines</li><li>Batch processing</li><li>Streaming architectures</li><li>Event-driven systems</li><li>Kafka</li><li>API-based ingestion</li><li>Reporting automation</li></ul></div>
+        </div>
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-modeling" type="button" aria-expanded="false" aria-controls="skill-panel-modeling"><span class="skill-name">Data modeling<span aria-hidden="true">+</span></span><span class="skill-teaser">Schemas · Dimensions</span></button>
+          <div class="skill-panel" id="skill-panel-modeling" role="region" aria-labelledby="skill-modeling" hidden><ul><li>Dimensional modeling</li><li>Star schema</li><li>Snowflake schema</li><li>One Big Table (OBT)</li><li>Schema design</li></ul></div>
+        </div>
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-databases" type="button" aria-expanded="false" aria-controls="skill-panel-databases"><span class="skill-name">Databases<span aria-hidden="true">+</span></span><span class="skill-teaser">PostgreSQL · Oracle</span></button>
+          <div class="skill-panel" id="skill-panel-databases" role="region" aria-labelledby="skill-databases" hidden><ul><li>PostgreSQL</li><li>Oracle</li><li>MongoDB</li></ul></div>
+        </div>
+        <div class="skill-card">
+          <button class="skill-trigger" id="skill-platforms" type="button" aria-expanded="false" aria-controls="skill-panel-platforms"><span class="skill-name">Platforms & DevOps<span aria-hidden="true">+</span></span><span class="skill-teaser">Databricks · Docker · Git</span></button>
+          <div class="skill-panel" id="skill-panel-platforms" role="region" aria-labelledby="skill-platforms" hidden><ul><li>Databricks</li><li>Docker</li><li>GitLab CI/CD</li><li>Azure DevOps</li><li>Git</li><li>Informatica PowerCenter</li></ul></div>
+        </div>
+      </div>
+      <p class="learning-note">Currently learning <span>dbt</span><span>Snowflake</span></p>
+    </section>
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="section-heading"><h2 class="eyebrow" id="work-title">PROFESSIONAL EXPERIENCE</h2><span>Built for the real world.</span></div>
       <div class="work-grid">
         <article>
-          <div class="project-meta"><span>01 / ACCENTURE</span><span>2020–2023</span></div>
+          <div class="experience-overview">
+          <div class="project-meta brand-meta"><div class="brand-lockup"><span class="accenture-logo-frame"><img class="brand-logo" src="logos/accenture.svg" alt="Accenture" width="118" height="45"></span><span class="brand-label">01 / ACCENTURE</span></div><span>2020–2023</span></div>
           <h2>From batch to streaming.</h2>
           <p>Worked across legacy ETL systems and a new Azure streaming platform, from proof of concept to production. Helped reduce processing latency from 20–30 minutes to about 10 seconds.</p>
           <div class="metric">~10 seconds<span>processing latency</span></div>
+          </div>
           <details class="experience-details">
             <summary>View all work at Accenture <span aria-hidden="true">+</span></summary>
             <div class="experience-content">
@@ -69,10 +101,12 @@
           </details>
         </article>
         <article>
-          <div class="project-meta"><span>02 / SENSOPART</span><span>2024–2026</span></div>
+          <div class="experience-overview">
+          <div class="project-meta brand-meta"><div class="brand-lockup"><img class="brand-logo" src="logos/sensopart.svg" alt="SensoPart" width="118" height="45"><span class="brand-label">02 / SENSOPART</span></div><span>2024–2026</span></div>
           <h2>Less repetition.<br>More automation.</h2>
           <p>Designed and built an automated software compliance platform, reducing recurring work from two weeks to a few days per release.</p>
           <div class="metric">Weeks → days<span>recurring compliance effort</span></div>
+          </div>
           <details class="experience-details">
             <summary>View all work at SensoPart <span aria-hidden="true">+</span></summary>
             <div class="experience-content">
@@ -101,18 +135,20 @@
       <div class="education-grid">
         <article>
           <div class="project-meta"><span>MASTER’S</span><span class="study-status">In progress</span></div>
+          <div class="education-brand freiburg-brand"><img class="education-logo" src="logos/freiburg.png" alt="University of Freiburg" width="220" height="147"></div>
           <h3>M.Sc. Embedded Systems Engineering</h3>
           <p class="university">University of Freiburg</p>
           <p>Germany · October 2023 – Present</p>
           <p class="grade">GPA 1.8 <span>German scale</span></p>
           <div class="study-timeline">
-            <div class="timeline-heading"><span>Master’s timeline</span><span>≈95%</span></div>
-            <progress value="95" max="100" aria-label="Master’s timeline, approximately 95 percent">95%</progress>
+            <div class="timeline-heading"><span>Master’s timeline</span></div>
+            <div class="timeline-track"><progress value="95" max="100" aria-label="Master’s study progress">In progress</progress><span class="timeline-pulse" aria-hidden="true"></span></div>
             <div class="timeline-dates"><span>Oct 2023</span><span>In progress</span></div>
           </div>
         </article>
         <article>
           <div class="project-meta"><span>BACHELOR’S</span><span>2016–2020</span></div>
+          <div class="education-brand"><img class="education-logo nmamit-logo" src="logos/nmamit.png" alt="Nitte — NMAM Institute of Technology" width="280" height="56"></div>
           <h3>B.E. Electronics and Communication Engineering</h3>
           <p class="university">NMAM Institute of Technology</p>
           <p>India</p>
