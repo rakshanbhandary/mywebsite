@@ -1,0 +1,6 @@
+.qa/
+.sites-runtime/
+node_modules/
+
+.openai/
+dist/plane.png
