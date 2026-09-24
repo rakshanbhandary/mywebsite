@@ -144,3 +144,27 @@ header nav{margin-left:auto}
   .name-reveal-active #portfolio>header,.name-reveal-active .hero-copy>:not(.hero-name),.name-reveal-active .hero>.journey-card,.name-reveal-active #portfolio>section:not(.hero),.name-reveal-active #portfolio>footer{opacity:0}
   .name-reveal-settling #portfolio>header,.name-reveal-settling .hero-copy>:not(.hero-name),.name-reveal-settling .hero>.journey-card,.name-reveal-settling #portfolio>section:not(.hero),.name-reveal-settling #portfolio>footer{transition:opacity .25s ease;opacity:1}
 }
+
+
+/* Scannable project stories within each independent disclosure. */
+.experience-story{padding:25px 0;border-top:1px solid var(--soft-border)}
+.experience-story:last-child{padding-bottom:5px}
+.experience-story h3{margin:0 0 12px}
+.work article .story-purpose{margin:0 0 18px;font-size:15px;line-height:1.65;color:var(--muted)}
+.experience-story strong{font-weight:600;color:var(--ink)}
+.experience-story .story-contributions{padding-left:18px}
+.experience-story .story-contributions li{font-size:15px;line-height:1.7;margin-bottom:12px}
+.experience-story .story-tools{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:18px 0 0}
+.experience-story .story-tools li{padding:5px 9px;margin:0;border-radius:4px;background:var(--chip);color:var(--chip-text);font-size:12px;line-height:1.4}
+.contact-section{max-width:1240px;margin:0 auto;padding-bottom:75px;scroll-margin-top:25px}
+.contact-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center;padding:18px 0 10px}
+.contact-layout h3{font-family:'Manrope',sans-serif;font-size:clamp(30px,3.2vw,44px);font-weight:500;letter-spacing:-1.4px;line-height:1.2;margin:0 0 20px}
+.contact-layout h3 span{color:var(--blue)}
+.contact-layout p{max-width:490px;color:var(--body-text);font-size:16px;line-height:1.75;margin:0}
+.contact-email{display:block;border-bottom:1px solid var(--border);padding:18px 0 24px;overflow-wrap:anywhere;font-size:clamp(17px,1.6vw,23px);line-height:1.5}
+.contact-label{display:block;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:1.8px;margin-bottom:12px}
+.contact-socials{display:flex;gap:28px;margin-top:17px;font-size:15px}
+.contact-socials a{padding:10px 0}
+.contact-links a:hover{color:var(--blue)}
+@media(max-width:1360px){.contact-section{margin-left:6%;margin-right:6%}}
+@media(max-width:850px){.contact-layout{grid-template-columns:1fr;gap:18px}.contact-section{padding-bottom:50px}.contact-email{font-size:clamp(17px,4.5vw,23px)}}
