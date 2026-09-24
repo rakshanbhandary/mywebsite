@@ -37,3 +37,7 @@ The `dist` directory is the complete static website and can be hosted directly. 
 ## Contact and sharing
 
 The contact section links to email, LinkedIn, and GitHub. The header’s Let’s talk link goes directly to that section. Social metadata uses the public canonical URL `https://rakshanbhandary.pages.dev/`; update the canonical, Open Graph URL, and image URLs together if the domain changes. The share image is a static PNG, so link previews do not need to run JavaScript.
+
+## CV download
+
+The hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Replace that file using the same filename and deploy to update the public download.

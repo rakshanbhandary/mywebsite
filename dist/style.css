@@ -198,3 +198,6 @@ header nav{margin-left:auto}
 .experience-card:target,.education article:target{border-color:var(--blue)}
 @media(min-width:851px){.hero{grid-template-columns:1.4fr 1.1fr;gap:60px}}
 @media(max-width:480px){.career-pipeline{padding:19px 15px}.pipeline-heading{gap:8px}.pipeline-heading h2{letter-spacing:1px}.pipeline-node{padding:12px 10px}.pipeline-branches{gap:10px}.pipeline-node strong{font-size:13px}}
+
+.cv-link{display:inline-flex;align-items:center;gap:12px;padding:13px 18px;border:1px solid var(--border);border-radius:5px;color:var(--blue);font-weight:500;white-space:nowrap;transition:background .2s,border-color .2s}
+.cv-link:hover{background:var(--hover);border-color:var(--hover-border)}
