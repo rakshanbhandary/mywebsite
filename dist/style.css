@@ -225,8 +225,8 @@ header nav{margin-left:auto}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 .one-piece-hint{position:absolute;z-index:3;left:calc(100% + 9px);bottom:0;display:grid;place-items:center;width:40px;height:32px;background:#fff4ce;color:#352214;border:2px solid #352214;border-radius:48% 52% 45% 48%;box-shadow:2px 2px 0 #352214;font-family:Arial,sans-serif;font-size:23px;font-weight:800;font-style:italic;opacity:0;transform:translateX(12px) rotate(9deg);visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
 .one-piece-hint:after{content:'';position:absolute;left:5px;bottom:-7px;width:10px;height:10px;background:#fff4ce;border-left:2px solid #352214;border-bottom:2px solid #352214;transform:skew(-20deg) rotate(-25deg)}
-.one-piece-egg:hover + .one-piece-hint,.one-piece-egg:focus-within + .one-piece-hint{opacity:1;transform:translateX(0) rotate(-5deg);visibility:visible}
-.one-piece-egg.is-peeking + .one-piece-hint{opacity:0;visibility:hidden}
+.one-piece-egg:hover .one-piece-hint,.one-piece-egg:focus-within .one-piece-hint{opacity:1;transform:translateX(0) rotate(-5deg);visibility:visible}
+.one-piece-egg.is-peeking .one-piece-hint{opacity:0;visibility:hidden}
 /* Straw-hat gold, warm red, and nautical blue; the existing light/dark choice still works. */
 :root[data-pirate="true"]{--ink:#26364a;--muted:#71634e;--blue:#ad332c;--paper:#fff8e8;--surface:#fffdf5;--body-text:#514b40;--border:#decba3;--soft-border:#e9d9b9;--hover:#ffedbd;--hover-border:#b98428;--chip:#f6e7bc;--chip-text:#554026;--track:#e5d8b8;--summary-bg:#ffedbd;--summary-ink:#963127}
 :root[data-theme="dark"][data-pirate="true"]{--ink:#fff4d9;--muted:#c6baa0;--blue:#f0bd58;--paper:#17212d;--surface:#202e3b;--body-text:#e0d5bf;--border:#4f5046;--soft-border:#464b43;--hover:#344139;--hover-border:#c79642;--chip:#3d4337;--chip-text:#f1dfb8;--track:#4f5046;--summary-bg:#3d4337;--summary-ink:#ffd681}
