@@ -120,3 +120,50 @@ document.querySelectorAll('.pipeline-node').forEach(link => {
 });
 window.addEventListener('hashchange', () => revealJourneyStop(location.hash));
 revealJourneyStop(location.hash);
+
+
+// The fan-art asset loads on demand; the rest of the portfolio never waits for it.
+const onePieceEgg = document.querySelector('.one-piece-egg');
+if (onePieceEgg) {
+  const trigger = onePieceEgg.querySelector('button');
+  const peek = onePieceEgg.querySelector('.luffy-window');
+  const illustration = peek.querySelector('img');
+  const status = document.querySelector('.easter-egg-status');
+  let active = false;
+  let generation = 0;
+  let hideTimer;
+  function hideLuffy() {
+    generation += 1;
+    active = false;
+    clearTimeout(hideTimer);
+    onePieceEgg.classList.remove('is-peeking');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.removeAttribute('aria-busy');
+    peek.setAttribute('aria-hidden', 'true');
+    status.textContent = '';
+  }
+  trigger.addEventListener('click', async () => {
+    if (active) { hideLuffy(); return; }
+    active = true;
+    const current = ++generation;
+    trigger.setAttribute('aria-busy', 'true');
+    if (!illustration.getAttribute('src')) illustration.src = illustration.dataset.src;
+    try { await illustration.decode(); }
+    catch { if (current === generation) hideLuffy(); return; }
+    if (current !== generation) return;
+    trigger.removeAttribute('aria-busy');
+    // Keep the reveal on screen even when the words wrap to the start of a mobile line.
+    const word = onePieceEgg.getBoundingClientRect();
+    const halfWidth = peek.offsetWidth / 2;
+    const center = Math.max(12 + halfWidth, Math.min(innerWidth - 12 - halfWidth, word.left + word.width / 2));
+    peek.style.left = `${center - word.left}px`;
+    trigger.setAttribute('aria-expanded', 'true');
+    peek.setAttribute('aria-hidden', 'false');
+    onePieceEgg.classList.add('is-peeking');
+    status.textContent = 'Luffy says hello!';
+    hideTimer = setTimeout(hideLuffy, 2400);
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') hideLuffy(); });
+  document.addEventListener('pointerdown', event => { if (!onePieceEgg.contains(event.target)) hideLuffy(); });
+  window.addEventListener('pagehide', hideLuffy);
+}

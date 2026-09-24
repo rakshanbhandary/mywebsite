@@ -41,3 +41,7 @@ The contact section links to email, LinkedIn, and GitHub. The header’s Let’s
 ## CV download
 
 The primary hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Replace that file using the same filename and deploy to update the public download.
+
+## Personal Easter egg
+
+Hover or focus the words “one piece” in the contact sentence for a question-mark hint. Activate the words to reveal Luffy behind the words for 2.4 seconds. The transparent fan-art image is generated for this portfolio and loaded only on activation. Repeat activation, Escape, or clicking elsewhere dismisses it. Reduced-motion users see a still reveal.
