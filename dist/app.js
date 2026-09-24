@@ -165,35 +165,68 @@ if (onePieceEgg) {
     // Prepare the optional font after discovery, without delaying the initial page.
     document.fonts?.load('400 72px "One Piece"').catch(() => {});
   });
+  const root = document.documentElement;
+  const scroll = document.querySelector('.pirate-name-scroll');
   let scrollRevision = 0;
+  let pirateRequested = false;
+  let scrollAnimations = [];
+
+  async function rollPaper(open) {
+    if (open && root.dataset.scroll !== 'true') {
+      root.dataset.scroll = 'true';
+      scrollAnimations = scroll.getAnimations({ subtree: true });
+    }
+    // Reverse the same timelines so another click can smoothly change direction.
+    for (const animation of scrollAnimations) {
+      const end = animation.effect.getComputedTiming().endTime;
+      const time = animation.currentTime ?? 0;
+      animation.playbackRate = open ? 1 : -1;
+      if ((open && time >= end) || (!open && time <= 0)) animation.finish();
+      else animation.play();
+    }
+    await Promise.all(scrollAnimations.map(animation => animation.finished));
+  }
+
+  async function fadePalette(enabled) {
+    root.classList.add('palette-fading');
+    // Establish the starting colours before changing the inherited colour tokens.
+    getComputedStyle(root).backgroundColor;
+    if (enabled) root.dataset.pirate = 'true';
+    else delete root.dataset.pirate;
+    window.dispatchEvent(new Event('palettechange'));
+    await Promise.all(root.getAnimations().map(animation => animation.finished));
+  }
+
   luffyButton.addEventListener('click', async () => {
-    const root = document.documentElement;
-    const enabled = root.dataset.scroll !== 'true';
+    const enabled = pirateRequested = !pirateRequested;
     const revision = ++scrollRevision;
     luffyButton.setAttribute('aria-pressed', String(enabled));
     const label = enabled ? 'Restore regular theme' : 'Switch to One Piece theme';
     luffyButton.setAttribute('aria-label', label);
     luffyButton.title = label;
-    if (!enabled) {
-      delete root.dataset.scroll;
-      delete root.dataset.pirate;
-      window.dispatchEvent(new Event('palettechange'));
-      status.textContent = 'Regular theme restored.';
-      return;
+    const current = () => revision === scrollRevision;
+    try {
+      if (enabled) {
+        status.textContent = 'Unrolling your pirate scroll.';
+        await rollPaper(true);
+        if (!current()) return;
+        await fadePalette(true);
+        if (!current()) return;
+        status.textContent = 'One Piece theme on. Click Luffy again to restore the regular theme.';
+      } else {
+        status.textContent = 'Restoring the regular theme and rolling up your scroll.';
+        await fadePalette(false);
+        if (!current()) return;
+        await rollPaper(false);
+        if (!current()) return;
+        delete root.dataset.scroll;
+        scrollAnimations = [];
+        status.textContent = 'Regular theme restored.';
+      }
+    } catch { /* Replaced transitions are handled by the latest click. */ }
+    finally {
+      if (current()) root.classList.remove('palette-fading');
     }
-
-    root.dataset.scroll = 'true';
-    status.textContent = 'Unrolling your pirate scroll.';
-    // Wait for both paper and roll to finish before applying the page palette.
-    // With reduced motion there are no animations, so the finished sheet is immediate.
-    const scroll = document.querySelector('.pirate-name-scroll');
-    const animations = scroll.getAnimations({ subtree: true });
-    try { await Promise.all(animations.map(animation => animation.finished)); }
-    catch { return; } // A second click can cancel an in-progress unroll.
-    if (revision !== scrollRevision || root.dataset.scroll !== 'true') return;
-    root.dataset.pirate = 'true';
-    window.dispatchEvent(new Event('palettechange'));
-    status.textContent = 'One Piece theme on. Your name is on a pirate scroll. Click Luffy again to restore the regular theme.';
   });
   window.addEventListener('resize', positionLuffy);
 }

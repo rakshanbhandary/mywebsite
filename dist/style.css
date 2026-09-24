@@ -223,7 +223,7 @@ header nav{margin-left:auto}
 .is-peeking .luffy-theme-toggle{transform:translateY(0);animation:luffy-peek .6s ease-out both}
 @keyframes luffy-peek{0%{transform:translateY(105%)}75%{transform:translateY(-2%)}100%{transform:translateY(0)}}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-.one-piece-hint{position:absolute;z-index:3;left:calc(100% + 9px);bottom:0;display:grid;place-items:center;width:40px;height:32px;background:#fff4ce;color:#352214;border:2px solid #352214;border-radius:48% 52% 45% 48%;box-shadow:2px 2px 0 #352214;font-family:Arial,sans-serif;font-size:23px;font-weight:800;font-style:italic;opacity:0;transform:translateX(12px) rotate(9deg);visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
+.one-piece-hint{position:absolute;z-index:3;left:calc(100% - 1px);bottom:calc(100% + 4px);display:grid;place-items:center;width:48px;height:39px;background:#fff4ce;color:#352214;border:2px solid #352214;border-radius:48% 52% 45% 48%;box-shadow:2px 2px 0 #352214;font-family:Arial,sans-serif;font-size:28px;font-weight:800;font-style:italic;opacity:0;transform:translateX(12px) rotate(9deg);visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
 .one-piece-hint:after{content:'';position:absolute;left:5px;bottom:-7px;width:10px;height:10px;background:#fff4ce;border-left:2px solid #352214;border-bottom:2px solid #352214;transform:skew(-20deg) rotate(-25deg)}
 .one-piece-egg:hover .one-piece-hint,.one-piece-egg:focus-within .one-piece-hint{opacity:1;transform:translateX(0) rotate(-5deg);visibility:visible}
 .one-piece-egg.is-peeking .one-piece-hint{opacity:0;visibility:hidden}
@@ -236,7 +236,7 @@ header nav{margin-left:auto}
 @font-face{font-family:'One Piece';src:url('fonts/OnePiece.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 .hero-name-wrap{position:relative;width:fit-content;max-width:100%;margin-bottom:24px}
 .hero .hero-name-wrap h1.hero-name{margin:0}
-.pirate-name-scroll{display:none;position:absolute;inset:-12px -16px;z-index:2;pointer-events:none;font-family:'One Piece',Georgia,serif;font-size:clamp(54px,6vw,82px);font-weight:400;line-height:1.03;letter-spacing:1px;text-align:center;text-transform:uppercase;color:#243e52;filter:drop-shadow(1px 5px 3px #24130630);transform:rotate(-3deg);transform-origin:center}
+.pirate-name-scroll{display:none;position:absolute;inset:-12px -16px;z-index:2;pointer-events:none;font-family:'One Piece',Georgia,serif;font-size:clamp(54px,6vw,82px);font-weight:400;line-height:1.03;letter-spacing:1px;text-align:center;text-transform:uppercase;color:#243e52;filter:drop-shadow(1px 5px 3px #24130630);transform:rotate(-5deg);transform-origin:center}
 .pirate-scroll-reveal{position:absolute;inset:0}
 .pirate-scroll-paper{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 20px;background:radial-gradient(ellipse at 4% 22%,#9b5e2b55,transparent 24%),radial-gradient(ellipse at 94% 82%,#97612f55,transparent 27%),repeating-linear-gradient(98deg,transparent 0 7px,#97652b0b 8px 9px),linear-gradient(105deg,#cfa15e,#f4dda7 9%,#fae8ba 50%,#e9c88b 90%,#b17c3f);box-shadow:inset 0 0 22px 5px #965d3240;clip-path:polygon(1% 4%,5% 2%,10% 3%,12% 0,17% 2%,23% 1%,27% 3%,33% 1%,39% 2%,45% 0,49% 3%,53% 1%,61% 2%,65% 0,69% 3%,76% 1%,81% 3%,87% 1%,92% 2%,98% 0,99% 8%,97% 16%,100% 21%,98% 29%,99% 37%,97% 42%,100% 49%,98% 55%,99% 63%,97% 68%,100% 74%,98% 83%,99% 89%,97% 97%,92% 99%,87% 97%,80% 100%,76% 97%,69% 99%,65% 97%,60% 100%,54% 98%,49% 99%,44% 96%,40% 99%,33% 97%,28% 100%,22% 98%,17% 99%,12% 96%,7% 99%,1% 97%,2% 89%,0 83%,2% 77%,1% 68%,3% 62%,0 57%,2% 49%,1% 42%,3% 34%,0 27%,2% 19%,0 12%)}
 .pirate-scroll-paper:after{content:'';position:absolute;inset:7px 10px;pointer-events:none;background:linear-gradient(170deg,transparent 48%,#8a562516 49%,transparent 51%),linear-gradient(8deg,transparent 46%,#fff7d73b 49%,transparent 52%)}
@@ -251,4 +251,22 @@ header nav{margin-left:auto}
 @keyframes parchment-unroll{from{clip-path:inset(0 calc(100% - 14px) 0 0)}to{clip-path:inset(0)}}
 @keyframes parchment-edge{0%{left:0;width:28px;transform:skewY(-2deg);box-shadow:-9px 3px 12px #43230f40,4px 2px 6px #43230f30}70%{width:20px;transform:skewY(1deg)}100%{left:calc(100% - 12px);width:12px;transform:skewY(0)}}
 @media(max-width:850px){.pirate-name-scroll{font-size:64px}}
-@media(max-width:480px){.pirate-name-scroll{inset:-10px -12px;font-size:54px;letter-spacing:0;transform:rotate(-2deg)}.pirate-scroll-paper{padding:10px 15px}}
+@media(max-width:480px){.pirate-name-scroll{inset:-10px -12px;font-size:54px;letter-spacing:0;transform:rotate(-4deg)}.pirate-scroll-paper{padding:10px 15px}}
+
+/* Fade inherited theme colours together without changing layout or motion timing. */
+@property --ink{syntax:"<color>";inherits:true;initial-value:#142039}
+@property --muted{syntax:"<color>";inherits:true;initial-value:#647086}
+@property --blue{syntax:"<color>";inherits:true;initial-value:#3159df}
+@property --paper{syntax:"<color>";inherits:true;initial-value:#f7f9fc}
+@property --surface{syntax:"<color>";inherits:true;initial-value:#fff}
+@property --body-text{syntax:"<color>";inherits:true;initial-value:#526077}
+@property --border{syntax:"<color>";inherits:true;initial-value:#dce2ec}
+@property --soft-border{syntax:"<color>";inherits:true;initial-value:#e3e8f0}
+@property --hover{syntax:"<color>";inherits:true;initial-value:#f0f4ff}
+@property --hover-border{syntax:"<color>";inherits:true;initial-value:#8ca8e7}
+@property --chip{syntax:"<color>";inherits:true;initial-value:#f0f4fa}
+@property --chip-text{syntax:"<color>";inherits:true;initial-value:#3b506e}
+@property --track{syntax:"<color>";inherits:true;initial-value:#e0e7f2}
+@property --summary-bg{syntax:"<color>";inherits:true;initial-value:#edf2ff}
+@property --summary-ink{syntax:"<color>";inherits:true;initial-value:#2447c2}
+:root.palette-fading{transition:--ink .6s ease-in-out,--muted .6s ease-in-out,--blue .6s ease-in-out,--paper .6s ease-in-out,--surface .6s ease-in-out,--body-text .6s ease-in-out,--border .6s ease-in-out,--soft-border .6s ease-in-out,--hover .6s ease-in-out,--hover-border .6s ease-in-out,--chip .6s ease-in-out,--chip-text .6s ease-in-out,--track .6s ease-in-out,--summary-bg .6s ease-in-out,--summary-ink .6s ease-in-out}
