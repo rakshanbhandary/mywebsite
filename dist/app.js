@@ -165,16 +165,35 @@ if (onePieceEgg) {
     // Prepare the optional font after discovery, without delaying the initial page.
     document.fonts?.load('400 72px "One Piece"').catch(() => {});
   });
-  luffyButton.addEventListener('click', () => {
-    const enabled = document.documentElement.dataset.pirate !== 'true';
-    if (enabled) document.documentElement.dataset.pirate = 'true';
-    else delete document.documentElement.dataset.pirate;
+  let scrollRevision = 0;
+  luffyButton.addEventListener('click', async () => {
+    const root = document.documentElement;
+    const enabled = root.dataset.scroll !== 'true';
+    const revision = ++scrollRevision;
     luffyButton.setAttribute('aria-pressed', String(enabled));
     const label = enabled ? 'Restore regular theme' : 'Switch to One Piece theme';
     luffyButton.setAttribute('aria-label', label);
     luffyButton.title = label;
+    if (!enabled) {
+      delete root.dataset.scroll;
+      delete root.dataset.pirate;
+      window.dispatchEvent(new Event('palettechange'));
+      status.textContent = 'Regular theme restored.';
+      return;
+    }
+
+    root.dataset.scroll = 'true';
+    status.textContent = 'Unrolling your pirate scroll.';
+    // Wait for both paper and roll to finish before applying the page palette.
+    // With reduced motion there are no animations, so the finished sheet is immediate.
+    const scroll = document.querySelector('.pirate-name-scroll');
+    const animations = scroll.getAnimations({ subtree: true });
+    try { await Promise.all(animations.map(animation => animation.finished)); }
+    catch { return; } // A second click can cancel an in-progress unroll.
+    if (revision !== scrollRevision || root.dataset.scroll !== 'true') return;
+    root.dataset.pirate = 'true';
     window.dispatchEvent(new Event('palettechange'));
-    status.textContent = enabled ? 'One Piece theme on. Your name is on a pirate scroll. Click Luffy again to restore the regular theme.' : 'Regular theme restored.';
+    status.textContent = 'One Piece theme on. Your name is on a pirate scroll. Click Luffy again to restore the regular theme.';
   });
   window.addEventListener('resize', positionLuffy);
 }
