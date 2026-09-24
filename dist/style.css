@@ -232,19 +232,23 @@ header nav{margin-left:auto}
 :root[data-theme="dark"][data-pirate="true"]{--ink:#fff4d9;--muted:#c6baa0;--blue:#f0bd58;--paper:#17212d;--surface:#202e3b;--body-text:#e0d5bf;--border:#4f5046;--soft-border:#464b43;--hover:#344139;--hover-border:#c79642;--chip:#3d4337;--chip-text:#f1dfb8;--track:#4f5046;--summary-bg:#3d4337;--summary-ink:#ffd681}
 
 
-/* A parchment overlay keeps the original heading and page geometry intact. */
-@font-face{font-family:'Pirata One';src:url('fonts/PirataOne-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+/* A sideways-unrolling parchment preserves the accessible heading underneath. */
+@font-face{font-family:'One Piece';src:url('fonts/OnePiece.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 .hero-name-wrap{position:relative;width:fit-content;max-width:100%;margin-bottom:24px}
 .hero .hero-name-wrap h1.hero-name{margin:0}
-.pirate-name-scroll{display:none;position:absolute;inset:-12px -16px;z-index:2;pointer-events:none;font-family:'Pirata One',Georgia,serif;font-size:clamp(54px,6vw,82px);font-weight:400;line-height:1.03;letter-spacing:.5px;text-align:center;color:#4b2c17}
-.pirate-scroll-paper{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;border:1px solid #b58a48;border-radius:3px;background:repeating-linear-gradient(98deg,transparent 0 7px,#97652b08 8px 9px),radial-gradient(ellipse at center,#fff0c7 20%,#edce91 85%,#cf9e57 100%);box-shadow:inset 0 0 18px #a6753030,0 5px 12px #24130626}
-.pirate-scroll-paper:before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:10px;border:1px solid #a2773a;border-radius:6px;background:linear-gradient(#c29751,#ffe9b6 40%,#c29751)}
-.pirate-scroll-paper>span:last-child{color:#84372b}
-.pirate-scroll-roll{position:absolute;top:calc(100% - 10px);left:-5px;right:-5px;height:14px;border:1px solid #a2773a;border-radius:8px;background:linear-gradient(#a87534,#ffe7b0 38%,#d8ae69 76%,#b58642);box-shadow:0 3px 5px #2c160e35}
+.pirate-name-scroll{display:none;position:absolute;inset:-12px -16px;z-index:2;pointer-events:none;font-family:'One Piece',Georgia,serif;font-size:clamp(54px,6vw,82px);font-weight:400;line-height:1.03;letter-spacing:1px;text-align:center;text-transform:uppercase;color:#243e52;filter:drop-shadow(1px 5px 3px #24130630)}
+.pirate-scroll-reveal{position:absolute;inset:0}
+.pirate-scroll-paper{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 20px;background:radial-gradient(ellipse at 4% 22%,#9b5e2b55,transparent 24%),radial-gradient(ellipse at 94% 82%,#97612f55,transparent 27%),repeating-linear-gradient(98deg,transparent 0 7px,#97652b0b 8px 9px),linear-gradient(105deg,#cfa15e,#f4dda7 9%,#fae8ba 50%,#e9c88b 90%,#b17c3f);box-shadow:inset 0 0 22px 5px #965d3240;clip-path:polygon(1% 4%,5% 2%,10% 3%,12% 0,17% 2%,23% 1%,27% 3%,33% 1%,39% 2%,45% 0,49% 3%,53% 1%,61% 2%,65% 0,69% 3%,76% 1%,81% 3%,87% 1%,92% 2%,98% 0,99% 8%,97% 16%,100% 21%,98% 29%,99% 37%,97% 42%,100% 49%,98% 55%,99% 63%,97% 68%,100% 74%,98% 83%,99% 89%,97% 97%,92% 99%,87% 97%,80% 100%,76% 97%,69% 99%,65% 97%,60% 100%,54% 98%,49% 99%,44% 96%,40% 99%,33% 97%,28% 100%,22% 98%,17% 99%,12% 96%,7% 99%,1% 97%,2% 89%,0 83%,2% 77%,1% 68%,3% 62%,0 57%,2% 49%,1% 42%,3% 34%,0 27%,2% 19%,0 12%)}
+.pirate-scroll-paper:after{content:'';position:absolute;inset:7px 10px;pointer-events:none;background:linear-gradient(170deg,transparent 48%,#8a562516 49%,transparent 51%),linear-gradient(8deg,transparent 46%,#fff7d73b 49%,transparent 52%)}
+.pirate-scroll-paper>span{position:relative;z-index:1;white-space:nowrap;text-shadow:0 1px #fff4d6}
+.pirate-scroll-paper>span:last-child{color:#86382b}
+.pirate-scroll-roll{position:absolute;top:1%;bottom:1%;left:calc(100% - 12px);width:12px;border:1px solid #a2773a;border-radius:45% 35% 35% 45% / 3% 3% 3% 3%;background:linear-gradient(90deg,#885a2c,#d1a35f 16%,#ffeac0 44%,#e8c68b 63%,#ac783c 92%,#724621);box-shadow:-5px 1px 7px #43230f32,3px 2px 4px #43230f25;transform-origin:center}
+.pirate-scroll-roll:before,.pirate-scroll-roll:after{content:'';position:absolute;left:0;right:0;height:5px;border:1px solid #8b592c;border-radius:50%;background:radial-gradient(ellipse,#8d582b 15%,#efd29b 25%,#bd8c4c 50%,#f4daab 65%,#b58548)}
+.pirate-scroll-roll:before{top:-2px}.pirate-scroll-roll:after{bottom:-2px}
 [data-pirate="true"] .pirate-name-scroll{display:block}
-[data-pirate="true"] .pirate-scroll-paper{animation:parchment-unroll .8s cubic-bezier(.22,.61,.36,1) both}
-[data-pirate="true"] .pirate-scroll-roll{animation:parchment-edge .8s cubic-bezier(.22,.61,.36,1) both}
-@keyframes parchment-unroll{from{clip-path:inset(0 0 calc(100% - 12px) 0)}to{clip-path:inset(0)}}
-@keyframes parchment-edge{from{top:0;transform:rotate(-1deg)}to{top:calc(100% - 10px);transform:rotate(0)}}
+[data-pirate="true"] .pirate-scroll-reveal{animation:parchment-unroll 1s cubic-bezier(.35,.05,.25,1) both}
+[data-pirate="true"] .pirate-scroll-roll{animation:parchment-edge 1s cubic-bezier(.35,.05,.25,1) both}
+@keyframes parchment-unroll{from{clip-path:inset(0 calc(100% - 14px) 0 0)}to{clip-path:inset(0)}}
+@keyframes parchment-edge{0%{left:0;width:28px;transform:skewY(-2deg);box-shadow:-9px 3px 12px #43230f40,4px 2px 6px #43230f30}70%{width:20px;transform:skewY(1deg)}100%{left:calc(100% - 12px);width:12px;transform:skewY(0)}}
 @media(max-width:850px){.pirate-name-scroll{font-size:64px}}
-@media(max-width:480px){.pirate-name-scroll{inset:-10px -12px;font-size:54px;letter-spacing:0}.pirate-scroll-paper{padding:8px 10px}.pirate-scroll-roll{left:-3px;right:-3px}}
+@media(max-width:480px){.pirate-name-scroll{inset:-10px -12px;font-size:54px;letter-spacing:0}.pirate-scroll-paper{padding:10px 15px}}

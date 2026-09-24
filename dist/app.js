@@ -163,7 +163,7 @@ if (onePieceEgg) {
     positionLuffy();
     status.textContent = 'Luffy is here! Click him to try the One Piece theme.';
     // Prepare the optional font after discovery, without delaying the initial page.
-    document.fonts?.load('400 72px "Pirata One"').catch(() => {});
+    document.fonts?.load('400 72px "One Piece"').catch(() => {});
   });
   luffyButton.addEventListener('click', () => {
     const enabled = document.documentElement.dataset.pirate !== 'true';
