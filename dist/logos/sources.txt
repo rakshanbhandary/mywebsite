@@ -2,5 +2,5 @@ Official logo assets, used to identify the employers and institutions in this po
 
 Accenture (wordmark isolated from the official footer SVG): https://www.accenture.com/content/dam/accenture/final/accenture-com/imagery-fy27/q1/Footer-Static-Desktop.svg
 SensoPart: https://www.sensopart.com/fileadmin/sensopart.com/01_logos/sensopart/sensopart_2020.svg
-University of Freiburg: https://cd.uni-freiburg.de/wp-content/uploads/2022/09/logo.png
+University of Freiburg (official blue-on-white variant): https://cd.uni-freiburg.de/wp-content/uploads/2023/02/UFR-vorlage-designsystem-typo-farben-V1.92.png
 NMAM Institute of Technology: https://nitte.edu.in/nmamit/img/nitte-nmamit-logo.png
