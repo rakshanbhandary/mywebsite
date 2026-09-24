@@ -218,7 +218,7 @@ header nav{margin-left:auto}
 .luffy-window{position:absolute;z-index:1;bottom:.1em;left:50%;transform:translateX(-50%);width:146px;height:226px;overflow:hidden;visibility:hidden}
 .luffy-theme-toggle{display:block;position:absolute;bottom:0;width:100%;height:220px;padding:0;border:0;background:none;cursor:pointer;transform:translateY(105%);border-radius:10px}
 .luffy-theme-toggle:focus-visible{outline:2px dashed var(--blue);outline-offset:-4px}
-.luffy-illustration{display:block;width:100%;height:100%;object-fit:contain}
+.luffy-illustration{display:block;width:100%;height:100%;object-fit:contain;transition:transform .22s ease,filter .22s ease;transform-origin:center bottom}
 .is-peeking .luffy-window{visibility:visible}
 .is-peeking .luffy-theme-toggle{transform:translateY(0);animation:luffy-peek .6s ease-out both}
 @keyframes luffy-peek{0%{transform:translateY(105%)}75%{transform:translateY(-2%)}100%{transform:translateY(0)}}
@@ -270,3 +270,12 @@ header nav{margin-left:auto}
 @property --summary-bg{syntax:"<color>";inherits:true;initial-value:#edf2ff}
 @property --summary-ink{syntax:"<color>";inherits:true;initial-value:#2447c2}
 :root.palette-fading{transition:--ink .6s ease-in-out,--muted .6s ease-in-out,--blue .6s ease-in-out,--paper .6s ease-in-out,--surface .6s ease-in-out,--body-text .6s ease-in-out,--border .6s ease-in-out,--soft-border .6s ease-in-out,--hover .6s ease-in-out,--hover-border .6s ease-in-out,--chip .6s ease-in-out,--chip-text .6s ease-in-out,--track .6s ease-in-out,--summary-bg .6s ease-in-out,--summary-ink .6s ease-in-out}
+
+/* The second interaction is discoverable after the character appears. */
+.luffy-tap-hint{position:absolute;z-index:3;bottom:150px;left:calc(50% + 78px);padding:9px 12px;border:2px solid #352214;border-radius:48% 52% 45% 48%;background:#fff4ce;color:#352214;box-shadow:2px 2px 0 #352214;font:italic 700 16px/1.1 Arial,sans-serif;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transform:translateY(5px) rotate(5deg);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.luffy-tap-hint:after{content:'';position:absolute;left:-6px;bottom:7px;width:10px;height:10px;background:#fff4ce;border-left:2px solid #352214;border-bottom:2px solid #352214;transform:rotate(35deg) skew(-15deg)}
+.is-peeking:not(.has-tried-theme) .luffy-tap-hint{opacity:1;visibility:visible;transform:translateY(0) rotate(5deg);transition-delay:.6s}
+@media(hover:hover) and (pointer:fine){.luffy-theme-toggle:hover .luffy-illustration{transform:translateY(-3px) scale(1.015);filter:drop-shadow(0 4px 4px #35221440)}}
+.luffy-theme-toggle:focus-visible .luffy-illustration{transform:translateY(-3px) scale(1.015);filter:drop-shadow(0 4px 4px #35221440)}
+.luffy-theme-toggle:active .luffy-illustration{transform:translateY(0) scale(.98)}
+@media(prefers-reduced-motion:reduce){.luffy-theme-toggle:is(:hover,:focus-visible,:active) .luffy-illustration{transform:none}}

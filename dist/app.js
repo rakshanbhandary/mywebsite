@@ -129,6 +129,7 @@ if (onePieceEgg) {
   const peek = onePieceEgg.querySelector('.luffy-window');
   const luffyButton = peek.querySelector('button');
   const illustration = peek.querySelector('img');
+  const tapHint = onePieceEgg.querySelector('.luffy-tap-hint');
   const status = document.querySelector('.easter-egg-status');
   let revealed = false;
   let loading = false;
@@ -138,6 +139,7 @@ if (onePieceEgg) {
     const halfWidth = peek.offsetWidth / 2;
     const center = Math.max(12 + halfWidth, Math.min(innerWidth - 12 - halfWidth, word.left + word.width / 2));
     peek.style.left = `${center - word.left}px`;
+    tapHint.style.left = `${center - word.left + halfWidth + 5}px`;
   }
   trigger.addEventListener('click', async () => {
     if (revealed || loading) return;
@@ -198,6 +200,7 @@ if (onePieceEgg) {
   }
 
   luffyButton.addEventListener('click', async () => {
+    onePieceEgg.classList.add('has-tried-theme');
     const enabled = pirateRequested = !pirateRequested;
     const revision = ++scrollRevision;
     luffyButton.setAttribute('aria-pressed', String(enabled));
