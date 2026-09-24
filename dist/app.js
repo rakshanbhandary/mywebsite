@@ -122,48 +122,57 @@ window.addEventListener('hashchange', () => revealJourneyStop(location.hash));
 revealJourneyStop(location.hash);
 
 
-// The fan-art asset loads on demand; the rest of the portfolio never waits for it.
+// Reveal Luffy once per page load; only his own button changes the palette.
 const onePieceEgg = document.querySelector('.one-piece-egg');
 if (onePieceEgg) {
-  const trigger = onePieceEgg.querySelector('button');
+  const trigger = onePieceEgg.querySelector('.one-piece-trigger');
   const peek = onePieceEgg.querySelector('.luffy-window');
+  const luffyButton = peek.querySelector('button');
   const illustration = peek.querySelector('img');
   const status = document.querySelector('.easter-egg-status');
-  let active = false;
-  let generation = 0;
-  let hideTimer;
-  function hideLuffy() {
-    generation += 1;
-    active = false;
-    clearTimeout(hideTimer);
-    onePieceEgg.classList.remove('is-peeking');
-    trigger.setAttribute('aria-expanded', 'false');
-    trigger.removeAttribute('aria-busy');
-    peek.setAttribute('aria-hidden', 'true');
-    status.textContent = '';
-  }
-  trigger.addEventListener('click', async () => {
-    if (active) { hideLuffy(); return; }
-    active = true;
-    const current = ++generation;
-    trigger.setAttribute('aria-busy', 'true');
-    if (!illustration.getAttribute('src')) illustration.src = illustration.dataset.src;
-    try { await illustration.decode(); }
-    catch { if (current === generation) hideLuffy(); return; }
-    if (current !== generation) return;
-    trigger.removeAttribute('aria-busy');
-    // Keep the reveal on screen even when the words wrap to the start of a mobile line.
+  let revealed = false;
+  let loading = false;
+  function positionLuffy() {
+    if (!revealed) return;
     const word = onePieceEgg.getBoundingClientRect();
     const halfWidth = peek.offsetWidth / 2;
     const center = Math.max(12 + halfWidth, Math.min(innerWidth - 12 - halfWidth, word.left + word.width / 2));
     peek.style.left = `${center - word.left}px`;
+  }
+  trigger.addEventListener('click', async () => {
+    if (revealed || loading) return;
+    loading = true;
+    trigger.setAttribute('aria-busy', 'true');
+    if (!illustration.getAttribute('src')) illustration.src = illustration.dataset.src;
+    try { await illustration.decode(); }
+    catch {
+      loading = false;
+      trigger.removeAttribute('aria-busy');
+      status.textContent = 'The surprise could not load. Try again.';
+      return;
+    }
+    loading = false;
+    revealed = true;
+    trigger.removeAttribute('aria-busy');
     trigger.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-label', 'One piece — Luffy is here');
     peek.setAttribute('aria-hidden', 'false');
+    luffyButton.disabled = false;
+    onePieceEgg.closest('.hero-copy').classList.add('has-luffy');
     onePieceEgg.classList.add('is-peeking');
-    status.textContent = 'Luffy says hello!';
-    hideTimer = setTimeout(hideLuffy, 2400);
+    positionLuffy();
+    status.textContent = 'Luffy is here! Click him to try One Piece colours.';
   });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') hideLuffy(); });
-  document.addEventListener('pointerdown', event => { if (!onePieceEgg.contains(event.target)) hideLuffy(); });
-  window.addEventListener('pagehide', hideLuffy);
+  luffyButton.addEventListener('click', () => {
+    const enabled = document.documentElement.dataset.pirate !== 'true';
+    if (enabled) document.documentElement.dataset.pirate = 'true';
+    else delete document.documentElement.dataset.pirate;
+    luffyButton.setAttribute('aria-pressed', String(enabled));
+    const label = enabled ? 'Restore regular colours' : 'Switch to One Piece colours';
+    luffyButton.setAttribute('aria-label', label);
+    luffyButton.title = label;
+    window.dispatchEvent(new Event('palettechange'));
+    status.textContent = enabled ? 'One Piece colours on. Click Luffy again to restore regular colours.' : 'Regular colours restored.';
+  });
+  window.addEventListener('resize', positionLuffy);
 }

@@ -13,7 +13,9 @@
     const theme = preference || (systemTheme.matches ? 'dark' : 'light');
     root.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#0d1422' : '#f7f9fc';
+    if (meta) meta.content = root.dataset.pirate === 'true'
+      ? (theme === 'dark' ? '#17212d' : '#fff8e8')
+      : (theme === 'dark' ? '#0d1422' : '#f7f9fc');
     const button = document.getElementById('theme-toggle');
     if (button) {
       const label = `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`;
@@ -34,6 +36,7 @@
   }
 
   applyTheme();
+  window.addEventListener('palettechange', applyTheme);
   systemTheme.addEventListener('change', () => { if (!preference) applyTheme(); });
   window.addEventListener('storage', event => {
     if (event.key !== storageKey && event.key !== null) return;

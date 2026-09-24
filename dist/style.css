@@ -208,18 +208,25 @@ header nav{margin-left:auto}
 }
 
 
-/* An optional One Piece surprise, revealed only by activating the text. */
-.contact-layout .personal-note{margin-top:28px;font-size:14px;color:var(--muted)}
+/* A hidden hero surprise: reveal the character, then optionally change colours. */
+.hero-statement-first,.hero-statement-second{display:block}
+.hero-statement-second{position:relative;width:fit-content;padding-top:0;transition:padding-top .45s ease}
+.has-luffy .hero-statement-second{padding-top:220px}
 .one-piece-egg{position:relative;display:inline-block;isolation:isolate;white-space:nowrap}
 .one-piece-trigger{position:relative;z-index:2;border:0;border-bottom:1px dotted currentColor;padding:0 2px;background:var(--paper);color:var(--blue);font:inherit;font-weight:600;cursor:pointer;line-height:inherit}
 .one-piece-trigger:hover{border-bottom-style:solid}
-.luffy-window{position:absolute;z-index:1;bottom:.15em;left:50%;transform:translateX(-50%);width:154px;height:172px;overflow:hidden;pointer-events:none;visibility:hidden}
-.luffy-illustration{display:block;position:absolute;bottom:0;width:100%;height:auto;transform:translateY(105%)}
+.luffy-window{position:absolute;z-index:1;bottom:.1em;left:50%;transform:translateX(-50%);width:146px;height:226px;overflow:hidden;visibility:hidden}
+.luffy-theme-toggle{display:block;position:absolute;bottom:0;width:100%;height:220px;padding:0;border:0;background:none;cursor:pointer;transform:translateY(105%);border-radius:10px}
+.luffy-theme-toggle:focus-visible{outline:2px dashed var(--blue);outline-offset:-4px}
+.luffy-illustration{display:block;width:100%;height:100%;object-fit:contain}
 .is-peeking .luffy-window{visibility:visible}
-.is-peeking .luffy-illustration{transform:translateY(0);animation:luffy-peek 2.4s ease-in-out both}
-@keyframes luffy-peek{0%{transform:translateY(105%)}16%{transform:translateY(-5%)}24%,82%{transform:translateY(0)}100%{transform:translateY(105%)}}
+.is-peeking .luffy-theme-toggle{transform:translateY(0);animation:luffy-peek .6s ease-out both}
+@keyframes luffy-peek{0%{transform:translateY(105%)}75%{transform:translateY(-2%)}100%{transform:translateY(0)}}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-
-.one-piece-hint{position:absolute;z-index:3;left:calc(100% + 5px);bottom:calc(100% + 3px);display:grid;place-items:center;width:24px;height:24px;background:var(--surface);color:var(--blue);border:1px solid var(--hover-border);border-radius:50% 50% 50% 3px;font-size:14px;font-weight:600;opacity:0;transform:translateX(9px) rotate(8deg);visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
-.one-piece-egg:hover .one-piece-hint,.one-piece-egg:focus-within .one-piece-hint{opacity:1;transform:translateX(0) rotate(0);visibility:visible}
-.one-piece-egg.is-peeking .one-piece-hint{opacity:0;visibility:hidden}
+.one-piece-hint{position:absolute;z-index:3;left:calc(100% + 9px);bottom:0;display:grid;place-items:center;width:40px;height:32px;background:#fff4ce;color:#352214;border:2px solid #352214;border-radius:48% 52% 45% 48%;box-shadow:2px 2px 0 #352214;font-family:Arial,sans-serif;font-size:23px;font-weight:800;font-style:italic;opacity:0;transform:translateX(12px) rotate(9deg);visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
+.one-piece-hint:after{content:'';position:absolute;left:5px;bottom:-7px;width:10px;height:10px;background:#fff4ce;border-left:2px solid #352214;border-bottom:2px solid #352214;transform:skew(-20deg) rotate(-25deg)}
+.one-piece-egg:hover + .one-piece-hint,.one-piece-egg:focus-within + .one-piece-hint{opacity:1;transform:translateX(0) rotate(-5deg);visibility:visible}
+.one-piece-egg.is-peeking + .one-piece-hint{opacity:0;visibility:hidden}
+/* Straw-hat gold, warm red, and nautical blue; the existing light/dark choice still works. */
+:root[data-pirate="true"]{--ink:#26364a;--muted:#71634e;--blue:#ad332c;--paper:#fff8e8;--surface:#fffdf5;--body-text:#514b40;--border:#decba3;--soft-border:#e9d9b9;--hover:#ffedbd;--hover-border:#b98428;--chip:#f6e7bc;--chip-text:#554026;--track:#e5d8b8;--summary-bg:#ffedbd;--summary-ink:#963127}
+:root[data-theme="dark"][data-pirate="true"]{--ink:#fff4d9;--muted:#c6baa0;--blue:#f0bd58;--paper:#17212d;--surface:#202e3b;--body-text:#e0d5bf;--border:#4f5046;--soft-border:#464b43;--hover:#344139;--hover-border:#c79642;--chip:#3d4337;--chip-text:#f1dfb8;--track:#4f5046;--summary-bg:#3d4337;--summary-ink:#ffd681}

@@ -44,4 +44,4 @@ The primary hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Repla
 
 ## Personal Easter egg
 
-Hover or focus the words “one piece” in the contact sentence for a question-mark hint. Activate the words to reveal Luffy behind the words for 2.4 seconds. The transparent fan-art image is generated for this portfolio and loaded only on activation. Repeat activation, Escape, or clicking elsewhere dismisses it. Reduced-motion users see a still reveal.
+The hero reads “Building something great. One piece at a time.” Hover or focus “One piece” for a comic question-mark bubble. Clicking the words reveals the supplied Luffy illustration (background removed), which stays until refresh. Clicking Luffy toggles a One Piece-inspired palette independently of the light/dark preference. The image loads on activation, and reduced-motion users get a still reveal. Neither the reveal nor the alternate palette persists after a refresh.
