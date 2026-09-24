@@ -23,17 +23,37 @@
   <meta name="twitter:image" content="https://rakshanbhandary.pages.dev/social-preview.png">
   <meta name="twitter:image:alt" content="Rakshan Bhandary, Data Engineer. Complex data. Clear possibilities. Based in Freiburg, Germany.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101c32'/%3E%3Cpath d='M9 24V8h7a5 5 0 0 1 0 10H9m7 0 7 6' fill='none' stroke='%239bbdff' stroke-width='3'/%3E%3C/svg%3E">
-  <script src="theme.js?v=20260924-1"></script>
-  <script src="name-reveal.js?v=20260924-1"></script>
-  <link rel="stylesheet" href="style.css?v=20260924-1">
-  <script defer src="app.js?v=20260924-1"></script>
+  <script src="theme.js?v=20260924-2"></script>
+  <script src="name-reveal.js?v=20260924-2"></script>
+  <link rel="stylesheet" href="style.css?v=20260924-2">
+  <script defer src="app.js?v=20260924-2"></script>
 </head>
 <body>
   <main id="portfolio">
     <header><a class="wordmark" href="#home" aria-label="Rakshan Bhandary home">RB<span>·</span></a><nav aria-label="Main navigation"><a href="#work">Experience</a><a href="#education">Education</a><a class="contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button></header>
     <section class="hero" id="home">
       <div class="hero-copy"><p class="eyebrow">DATA ENGINEER · FREIBURG, GERMANY</p><h1 class="hero-name">Rakshan<br><span>Bhandary.</span></h1><p class="hero-statement">Complex data. Clear possibilities.</p><p class="lead">I build reliable data pipelines and automate complex workflows. From India to Germany, curiosity has always been the connecting thread.</p><div class="hero-links"><a class="primary-link" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a href="https://www.linkedin.com/in/rakshan-bhandary-589380187" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/rakshanbhandary" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
-      <aside class="journey-card"><div class="card-top"><span>THE JOURNEY SO FAR</span><span>01 — 02</span></div><div class="journey-cities"><span>India</span><div class="journey-line"></div><span>Germany</span></div><p>Building systems.<br>Connecting the dots.</p><span class="card-foot">PYTHON / SQL / AZURE / PYSPARK</span></aside>
+      <aside class="career-pipeline" aria-labelledby="pipeline-title">
+        <div class="pipeline-heading"><h2 id="pipeline-title">THE JOURNEY SO FAR</h2><span>India → Germany</span></div>
+        <p class="pipeline-hint">Follow a stop to explore my work and studies.</p>
+        <nav aria-label="Career and education journey">
+          <ol class="pipeline-stages">
+            <li class="pipeline-stage">
+              <a class="pipeline-node" href="#education-bachelors"><span class="pipeline-kind">EDUCATION <span aria-hidden="true">↗</span></span><strong>NMAM Institute of Technology</strong><span>B.E. · Electronics &amp; Communication</span><span class="pipeline-dates">2016–2020 · India</span></a>
+            </li>
+            <li class="pipeline-stage">
+              <a class="pipeline-node" href="#work-accenture"><span class="pipeline-kind">EXPERIENCE <span aria-hidden="true">↗</span></span><strong>Accenture</strong><span>Data Engineer / Software Engineer</span><span class="pipeline-dates">2020–2023 · India</span></a>
+            </li>
+            <li class="pipeline-stage pipeline-parallel">
+              <p class="pipeline-branch-label">GERMANY · WORK &amp; STUDY IN PARALLEL</p>
+              <div class="pipeline-branches">
+                <a class="pipeline-node pipeline-current" href="#education-masters"><span class="pipeline-kind">EDUCATION <span aria-hidden="true">↗</span></span><strong>University of Freiburg</strong><span>M.Sc. · Embedded Systems Engineering</span><span class="pipeline-dates">2023–Present</span><span class="pipeline-status">In progress</span></a>
+                <a class="pipeline-node" href="#work-sensopart"><span class="pipeline-kind">EXPERIENCE <span aria-hidden="true">↗</span></span><strong>SensoPart</strong><span>Data Engineer · Working Student</span><span class="pipeline-dates">2024–2026</span></a>
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </aside>
     </section>
     <section class="skills" id="skills" aria-labelledby="skills-title">
       <div class="section-heading"><h2 class="eyebrow" id="skills-title">MY TOOLKIT</h2><span>The skills behind the systems.</span></div>
@@ -68,7 +88,7 @@
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="section-heading"><h2 class="eyebrow" id="work-title">PROFESSIONAL EXPERIENCE</h2><span>Built for the real world.</span></div>
       <div class="work-grid">
-        <article class="experience-card">
+        <article class="experience-card" id="work-accenture" tabindex="-1">
           <div class="experience-overview">
           <div class="project-meta brand-meta"><div class="brand-lockup"><span class="accenture-logo-frame"><img class="brand-logo" src="logos/accenture.svg" alt="Accenture" width="118" height="45"></span><span class="brand-label">01 / ACCENTURE</span></div><span>2020–2023</span></div>
           <h2>From batch to streaming.</h2>
@@ -125,7 +145,7 @@
             </div>
           </details>
         </article>
-        <article class="experience-card">
+        <article class="experience-card" id="work-sensopart" tabindex="-1">
           <div class="experience-overview">
           <div class="project-meta brand-meta"><div class="brand-lockup"><img class="brand-logo" src="logos/sensopart.svg" alt="SensoPart" width="118" height="45"><span class="brand-label">02 / SENSOPART</span></div><span>2024–2026</span></div>
           <h2>Less repetition.<br>More automation.</h2>
@@ -183,7 +203,7 @@
     <section class="education" id="education" aria-labelledby="education-title">
       <div class="section-heading"><h2 class="eyebrow" id="education-title">EDUCATION</h2><span>Engineering, from systems to data.</span></div>
       <div class="education-grid">
-        <article>
+        <article id="education-masters" tabindex="-1">
           <div class="project-meta"><span>MASTER’S</span><span class="study-status">In progress</span></div>
           <div class="education-brand freiburg-brand"><img class="education-logo" src="logos/freiburg.png" alt="University of Freiburg" width="220" height="147"></div>
           <h3>M.Sc. Embedded Systems Engineering</h3>
@@ -196,7 +216,7 @@
             <div class="timeline-dates"><span>Oct 2023</span><span>In progress</span></div>
           </div>
         </article>
-        <article>
+        <article id="education-bachelors" tabindex="-1">
           <div class="project-meta"><span>BACHELOR’S</span><span>2016–2020</span></div>
           <div class="education-brand"><img class="education-logo nmamit-logo" src="logos/nmamit.png" alt="Nitte — NMAM Institute of Technology" width="280" height="56"></div>
           <h3>B.E. Electronics and Communication Engineering</h3>

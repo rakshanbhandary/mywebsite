@@ -105,3 +105,18 @@ if (typeof ResizeObserver === 'function') {
 if (document.fonts?.ready) document.fonts.ready.then(alignExperienceCards);
 window.addEventListener('load', alignExperienceCards);
 alignExperienceCards();
+
+// Journey stops link directly to the matching entry and reveal its work details.
+function revealJourneyStop(hash) {
+  if (hash !== '#work-accenture' && hash !== '#work-sensopart') return;
+  const details = document.querySelector(`${hash} .experience-details`);
+  if (details && !details.open) details.querySelector('summary').click();
+}
+document.querySelectorAll('.pipeline-node').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    revealJourneyStop(link.hash);
+  });
+});
+window.addEventListener('hashchange', () => revealJourneyStop(location.hash));
+revealJourneyStop(location.hash);

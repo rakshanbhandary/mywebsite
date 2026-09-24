@@ -26,6 +26,8 @@ The `dist` directory is the complete static website and can be hosted directly. 
 
 ## Interactions
 
+- The hero pipeline links directly to each work or education entry; work links also open the matching details. The Germany branch shows overlapping master’s study and SensoPart experience.
+
 - Skill categories open on hover, keyboard focus, or tap; Escape dismisses the list.
 - Experience cards align when collapsed and animate open and closed.
 - The master’s timeline is filled to 95% with a gentle pulse and no visible numeric percentage.
