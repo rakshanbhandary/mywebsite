@@ -161,18 +161,20 @@ if (onePieceEgg) {
     onePieceEgg.closest('.hero-copy').classList.add('has-luffy');
     onePieceEgg.classList.add('is-peeking');
     positionLuffy();
-    status.textContent = 'Luffy is here! Click him to try One Piece colours.';
+    status.textContent = 'Luffy is here! Click him to try the One Piece theme.';
+    // Prepare the optional font after discovery, without delaying the initial page.
+    document.fonts?.load('400 72px "Pirata One"').catch(() => {});
   });
   luffyButton.addEventListener('click', () => {
     const enabled = document.documentElement.dataset.pirate !== 'true';
     if (enabled) document.documentElement.dataset.pirate = 'true';
     else delete document.documentElement.dataset.pirate;
     luffyButton.setAttribute('aria-pressed', String(enabled));
-    const label = enabled ? 'Restore regular colours' : 'Switch to One Piece colours';
+    const label = enabled ? 'Restore regular theme' : 'Switch to One Piece theme';
     luffyButton.setAttribute('aria-label', label);
     luffyButton.title = label;
     window.dispatchEvent(new Event('palettechange'));
-    status.textContent = enabled ? 'One Piece colours on. Click Luffy again to restore regular colours.' : 'Regular colours restored.';
+    status.textContent = enabled ? 'One Piece theme on. Your name is on a pirate scroll. Click Luffy again to restore the regular theme.' : 'Regular theme restored.';
   });
   window.addEventListener('resize', positionLuffy);
 }

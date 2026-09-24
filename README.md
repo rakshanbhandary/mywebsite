@@ -45,3 +45,5 @@ The primary hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Repla
 ## Personal Easter egg
 
 The hero reads “Building something great. One piece at a time.” Hover or focus “One piece” for a comic question-mark bubble. Clicking the words reveals the supplied Luffy illustration (background removed), which stays until refresh. Clicking Luffy toggles a One Piece-inspired palette independently of the light/dark preference. The image loads on activation, and reduced-motion users get a still reveal. Neither the reveal nor the alternate palette persists after a refresh.
+
+The optional theme unrolls a CSS parchment over the original heading and displays the name in Pirata One lettering. The original accessible heading remains in place; reduced motion shows the finished scroll immediately. Pirata One is bundled under the SIL Open Font License (`dist/fonts/PirataOne-OFL.txt`), from https://github.com/google/fonts/tree/main/ofl/pirataone.

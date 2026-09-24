@@ -133,8 +133,8 @@ header nav{margin-left:auto}
 .name-reveal-overlay .name-surname{fill:var(--blue);stroke:var(--blue)}
 @media(prefers-reduced-motion:no-preference){
   .name-reveal-active .hero-name{opacity:0}
-  .name-reveal-active #portfolio>header,.name-reveal-active .hero-copy>:not(.hero-name),.name-reveal-active .hero>.career-pipeline,.name-reveal-active #portfolio>section:not(.hero),.name-reveal-active #portfolio>footer{opacity:0}
-  .name-reveal-settling #portfolio>header,.name-reveal-settling .hero-copy>:not(.hero-name),.name-reveal-settling .hero>.career-pipeline,.name-reveal-settling #portfolio>section:not(.hero),.name-reveal-settling #portfolio>footer{transition:opacity .25s ease;opacity:1}
+  .name-reveal-active #portfolio>header,.name-reveal-active .hero-copy>:not(.hero-name):not(.hero-name-wrap),.name-reveal-active .hero>.career-pipeline,.name-reveal-active #portfolio>section:not(.hero),.name-reveal-active #portfolio>footer{opacity:0}
+  .name-reveal-settling #portfolio>header,.name-reveal-settling .hero-copy>:not(.hero-name):not(.hero-name-wrap),.name-reveal-settling .hero>.career-pipeline,.name-reveal-settling #portfolio>section:not(.hero),.name-reveal-settling #portfolio>footer{transition:opacity .25s ease;opacity:1}
 }
 
 /* Scannable project stories within each independent disclosure. */
@@ -230,3 +230,21 @@ header nav{margin-left:auto}
 /* Straw-hat gold, warm red, and nautical blue; the existing light/dark choice still works. */
 :root[data-pirate="true"]{--ink:#26364a;--muted:#71634e;--blue:#ad332c;--paper:#fff8e8;--surface:#fffdf5;--body-text:#514b40;--border:#decba3;--soft-border:#e9d9b9;--hover:#ffedbd;--hover-border:#b98428;--chip:#f6e7bc;--chip-text:#554026;--track:#e5d8b8;--summary-bg:#ffedbd;--summary-ink:#963127}
 :root[data-theme="dark"][data-pirate="true"]{--ink:#fff4d9;--muted:#c6baa0;--blue:#f0bd58;--paper:#17212d;--surface:#202e3b;--body-text:#e0d5bf;--border:#4f5046;--soft-border:#464b43;--hover:#344139;--hover-border:#c79642;--chip:#3d4337;--chip-text:#f1dfb8;--track:#4f5046;--summary-bg:#3d4337;--summary-ink:#ffd681}
+
+
+/* A parchment overlay keeps the original heading and page geometry intact. */
+@font-face{font-family:'Pirata One';src:url('fonts/PirataOne-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.hero-name-wrap{position:relative;width:fit-content;max-width:100%;margin-bottom:24px}
+.hero .hero-name-wrap h1.hero-name{margin:0}
+.pirate-name-scroll{display:none;position:absolute;inset:-12px -16px;z-index:2;pointer-events:none;font-family:'Pirata One',Georgia,serif;font-size:clamp(54px,6vw,82px);font-weight:400;line-height:1.03;letter-spacing:.5px;text-align:center;color:#4b2c17}
+.pirate-scroll-paper{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;border:1px solid #b58a48;border-radius:3px;background:repeating-linear-gradient(98deg,transparent 0 7px,#97652b08 8px 9px),radial-gradient(ellipse at center,#fff0c7 20%,#edce91 85%,#cf9e57 100%);box-shadow:inset 0 0 18px #a6753030,0 5px 12px #24130626}
+.pirate-scroll-paper:before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:10px;border:1px solid #a2773a;border-radius:6px;background:linear-gradient(#c29751,#ffe9b6 40%,#c29751)}
+.pirate-scroll-paper>span:last-child{color:#84372b}
+.pirate-scroll-roll{position:absolute;top:calc(100% - 10px);left:-5px;right:-5px;height:14px;border:1px solid #a2773a;border-radius:8px;background:linear-gradient(#a87534,#ffe7b0 38%,#d8ae69 76%,#b58642);box-shadow:0 3px 5px #2c160e35}
+[data-pirate="true"] .pirate-name-scroll{display:block}
+[data-pirate="true"] .pirate-scroll-paper{animation:parchment-unroll .8s cubic-bezier(.22,.61,.36,1) both}
+[data-pirate="true"] .pirate-scroll-roll{animation:parchment-edge .8s cubic-bezier(.22,.61,.36,1) both}
+@keyframes parchment-unroll{from{clip-path:inset(0 0 calc(100% - 12px) 0)}to{clip-path:inset(0)}}
+@keyframes parchment-edge{from{top:0;transform:rotate(-1deg)}to{top:calc(100% - 10px);transform:rotate(0)}}
+@media(max-width:850px){.pirate-name-scroll{font-size:64px}}
+@media(max-width:480px){.pirate-name-scroll{inset:-10px -12px;font-size:54px;letter-spacing:0}.pirate-scroll-paper{padding:8px 10px}.pirate-scroll-roll{left:-3px;right:-3px}}
