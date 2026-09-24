@@ -26,7 +26,7 @@ The `dist` directory is the complete static website and can be hosted directly. 
 
 ## Interactions
 
-- The hero pipeline links directly to each work or education entry; work links also open the matching details. The Germany branch shows overlapping master’s study and SensoPart experience.
+- The hero pipeline links directly to each work or education entry; work links also open the matching details. The Germany branch shows overlapping master’s study and SensoPart experience. On phones, compact nodes retain the organization, category, and dates.
 
 - Skill categories open on hover, keyboard focus, or tap; Escape dismisses the list.
 - Experience cards align when collapsed and animate open and closed.
@@ -40,4 +40,4 @@ The contact section links to email, LinkedIn, and GitHub. The header’s Let’s
 
 ## CV download
 
-The hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Replace that file using the same filename and deploy to update the public download.
+The primary hero Download CV button serves `dist/Rakshan_Bhandary_CV.pdf`. Replace that file using the same filename and deploy to update the public download.

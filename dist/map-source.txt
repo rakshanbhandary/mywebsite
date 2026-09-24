@@ -1,4 +1,0 @@
-Map geometry: Natural Earth, public domain. Europe uses 1:110m country geometry; India uses 1:10m India point-of-view boundaries, including territories claimed by India.
-https://www.naturalearthdata.com/blog/admin-0-countries-point-of-views/
-Both regions use the same equirectangular projection and scale. Outlines are simplified and unfilled, and the line represents a personal journey, not a scheduled flight or a distance measurement.
-Airplane icon: Lucide, ISC license. https://lucide.dev/license
